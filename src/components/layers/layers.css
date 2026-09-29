@@ -1,0 +1,141 @@
+.layers {
+  width: var(--layers-width);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 8px 0 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.sidebar-header__icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-control);
+  color: var(--ink-muted);
+}
+
+.sidebar-header__icon:hover {
+  background: var(--input-bg);
+  color: var(--ink);
+}
+
+.layers__tree {
+  flex: 1;
+  padding: 0 8px 16px;
+}
+
+.layer-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: var(--row-height);
+  padding-right: 8px;
+  border-radius: var(--radius-control);
+  cursor: default;
+  user-select: none;
+}
+
+.layer-row.is-hovered {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.layer-row.is-selected {
+  background: var(--accent-soft);
+}
+
+.layer-row.is-drop-inside {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.layer-row.is-drop-before::before,
+.layer-row.is-drop-after::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.layer-row.is-drop-before::before {
+  top: -1px;
+}
+
+.layer-row.is-drop-after::after {
+  bottom: -1px;
+}
+
+.layer-row__caret {
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.layer-row__caret.is-hidden {
+  visibility: hidden;
+}
+
+.layer-row__icon {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.layer-row.is-selected .layer-row__icon {
+  color: var(--accent);
+}
+
+.layer-row__name {
+  flex: 1;
+  min-width: 0;
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.layer-row__rename {
+  flex: 1;
+  min-width: 0;
+  height: 20px;
+  padding: 0 4px;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  outline: none;
+  font: inherit;
+  background: var(--surface);
+}
+
+.layer-row__dot {
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.layer-row__tag {
+  color: var(--ink-muted);
+  font-size: 10px;
+  flex-shrink: 0;
+}

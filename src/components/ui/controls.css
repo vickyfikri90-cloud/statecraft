@@ -1,0 +1,254 @@
+/* Field ------------------------------------------------------------------ */
+
+.ui-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ui-field.is-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.ui-field.is-inline .ui-field__label {
+  width: 64px;
+  flex-shrink: 0;
+}
+
+.ui-field__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 14px;
+  font: var(--text-field-label);
+  letter-spacing: 0.27px;
+  color: var(--ink-muted);
+}
+
+.ui-field__label .is-overridden {
+  color: var(--accent);
+}
+
+.ui-field__reset {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+  border-radius: 3px;
+}
+
+.ui-field__reset:hover {
+  background: var(--accent-soft);
+}
+
+.ui-field__control {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ui-field__control > * {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Input shell (matches the design tokens’ input style) ------------------------- */
+
+.ui-input {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  height: var(--control-height);
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  color: var(--ink);
+  font: var(--text-control);
+}
+
+.ui-input:focus-within {
+  border-color: var(--focus-border);
+}
+
+.ui-input.is-highlighted {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.ui-input.is-error {
+  border-color: var(--danger);
+  animation: ui-shake 0.3s;
+}
+
+@keyframes ui-shake {
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.ui-input.is-multiline {
+  height: auto;
+  align-items: stretch;
+}
+
+.ui-input__field {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 var(--input-inset);
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.ui-input__field::placeholder {
+  color: var(--ink-muted);
+}
+
+textarea.ui-input__field {
+  padding: 4px var(--input-inset);
+  resize: vertical;
+  min-height: 48px;
+}
+
+.ui-input__field.is-mono {
+  font: var(--text-code);
+  font-size: 10px;
+}
+
+.ui-input__icon {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 100%;
+  flex-shrink: 0;
+  color: var(--ink-muted);
+  font-size: 10px;
+  user-select: none;
+}
+
+.ui-input__icon + .ui-input__field {
+  padding-left: 0;
+}
+
+.ui-input__icon.is-scrub {
+  cursor: ew-resize;
+}
+
+.ui-input__unit {
+  height: 100%;
+  padding: 0 6px;
+  color: var(--ink-muted);
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
+  flex-shrink: 0;
+}
+
+.ui-input__unit:hover {
+  background: var(--hover-overlay);
+  color: var(--ink);
+}
+
+/* Select ------------------------------------------------------------------ */
+
+.ui-select {
+  gap: 4px;
+  padding: 0 4px 0 var(--input-inset);
+  text-align: left;
+  color: var(--ink);
+}
+
+.ui-select__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-select svg {
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+/* Segmented --------------------------------------------------------------- */
+
+.ui-segmented {
+  display: flex;
+  height: var(--control-height);
+  padding: 2px;
+  gap: 2px;
+  background: var(--input-bg);
+  border-radius: var(--radius-control);
+}
+
+.ui-segmented.is-highlighted {
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.ui-segmented__item {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  border-radius: 3px;
+  color: var(--ink-muted);
+  font-size: 10px;
+}
+
+.ui-segmented__item:hover {
+  color: var(--ink);
+}
+
+.ui-segmented__item.is-active {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Color ------------------------------------------------------------------- */
+
+.ui-color__swatch {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px 0 5px;
+  border-radius: var(--radius-swatch);
+  background:
+    linear-gradient(var(--swatch), var(--swatch)),
+    repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 6px 6px;
+  box-shadow: var(--shadow-swatch);
+  cursor: pointer;
+}
+
+.ui-color__swatch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.ui-color .ui-input__field:first-of-type {
+  padding-left: 0;
+}
+
+.ui-color__alpha {
+  flex: 0 0 30px;
+  padding: 0 0 0 6px;
+  border-left: 1px solid var(--surface);
+  text-align: right;
+}
+
+.ui-color__pct {
+  padding: 0 6px 0 1px;
+  color: var(--ink-muted);
+}

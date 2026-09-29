@@ -1,0 +1,59 @@
+@import './tokens.css';
+
+/* App-level tokens on top of the design system. */
+:root {
+  --app-bg: #f7f7f7;
+  --accent: #4372ff; /* Selection outlines and state overrides. */
+  --accent-soft: rgba(67, 114, 255, 0.1);
+  --danger: #e5484d;
+  --topbar-height: 44px;
+  --sidebar-width: 241px;
+  --layers-width: 240px;
+  --row-height: 28px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--ink);
+  font: var(--text-control);
+  letter-spacing: 0.055px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Every app control opts in via ui-* classes; bare elements stay unstyled so
+   component content in the canvases is not affected. */
+/* :where keeps specificity at 0 so component classes win regardless of order. */
+:where(.ui-reset-button) {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ui-scroll {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.ui-muted {
+  color: var(--ink-muted);
+}

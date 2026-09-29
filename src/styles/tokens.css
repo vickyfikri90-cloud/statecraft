@@ -1,0 +1,83 @@
+/* Statecraft design tokens (from the Experiment Tool design system). */
+:root, [data-theme="light"] {
+  --White: #ffffff; /* Background */
+  --Black: #000000; /* Text */
+  --surface: #ffffff; /* App, preview and panel background (.cp-app, .cp-preview, .panel); download button fill; slider thumb ring (4px border). */
+  --ink: #09090b; /* All control text on `surface` and `input-bg`: input values, toggle/checkbox labels, snippet code, dimension label. 19.6:1 on surface, 18:1 on input-bg. */
+  --ink-muted: #00000098; /* Field labels (.field-label), input icons/prefix letters, opacity % suffix. Resolves to about #808080 on surface: 3.9:1, and 3.6:1 on input-bg, below 4.5:1 for 9–11px text. Kept exact from source; flagged. */
+  --input-bg: #f5f5f5; /* Fill of every 24px control (.input-wrap, slider value box), slider track, snippet textarea, cubic-bézier editor ground, toggle knob. */
+  --focus-border: #9d9d9d; /* 1px border on .input-wrap:focus-within and 1px focus-visible outline on toggle/checkbox rows. 2.7:1 on surface, below the 3:1 focus-ring floor; kept exact, flagged. */
+  --border-subtle: #eeeeee; /* Outer border of .cp-app and the panel's left (mobile: top) border. */
+  --border-button: #e6e6e6; /* Border of the Snippet Output download button. */
+  --hover-fill: #fafafa; /* Download button hover background. */
+  --hover-overlay: rgba(0, 0, 0, 0.04); /* Chevron hover wash inside a dimension control. */
+  --control-fill: #23272e; /* Active/selected state: slider fill and thumb, toggle track when on, checked/indeterminate checkbox box. */
+  --control-fill-off: rgba(35, 39, 46, 0.6); /* Toggle track when off. */
+  --checkbox-border: rgba(35, 39, 46, 0.3); /* 2px border of an unchecked checkbox box. */
+  --hairline: rgba(0, 0, 0, 0.08); /* Swatch inset ring, dropdown menu border, color-preview border. */
+  --divider-line: rgba(0, 0, 0, 0.1); /* Panel divider line (.panel-divider__line); slider thumb outer ring. */
+  --tick-mark: rgba(134, 134, 134, 0.4); /* 3×3px tick marks on a Slider Tick track. */
+  --menu-bg: #000000; /* Dropdown menus (dimension menu, option selector) — the kit's menus are black. */
+  --menu-text: #ffffff; /* Menu option text on `menu-bg` (21:1). */
+  --menu-item-active: rgba(245, 245, 245, 0.18); /* Hovered/active menu option on `menu-bg`. */
+  --bezier-handle: #4372ff; /* Cubic-bézier handle lines and handle strokes — the kit's only chromatic colour. */
+  --bezier-handle-focus: #2952cc; /* Cubic-bézier handle stroke when focused. */
+  --bezier-curve: #000000; /* Cubic-bézier curve stroke (3px) and guide lines (40% opacity). */
+  --shadow-menu: 0 2px 2px rgba(0, 0, 0, 0.15); /* Dropdown menus. */
+  --shadow-thumb: 0 0 0 1px rgba(0, 0, 0, 0.1); /* Slider thumb outline. */
+  --shadow-swatch: inset 0 0 0 1px rgba(0, 0, 0, 0.08); /* Inner ring on the Color Input swatch. */
+}
+:root {
+  --field-padding-x: 16px; /* Horizontal padding of every .field, slider field and divider (0 16px). */
+  --field-gap: 16px; /* Bottom margin between fields; panel vertical padding. */
+  --row-gap: 8px; /* Gap inside .row, between stacked rows, label → control, and between slider value and track. */
+  --input-inset: 7px; /* Text inset inside an .input-wrap with no icon; chevron and suffix padding. */
+  --menu-offset: 4px; /* Gap between a dimension control and its menu; divider vertical padding. */
+  --menu-padding: 2px; /* Inner padding of dropdown menus; toggle track padding. */
+  --radius-control: 5px; /* Inputs, slider track and fill, snippet textarea, buttons, menu options, colour preview. */
+  --radius-menu: 8px; /* Dropdown menus; toggle track and knob. */
+  --radius-app: 12px; /* Outer corner of .cp-app (0 in fullscreen). */
+  --radius-checkbox: 4px; /* Checkbox box. */
+  --radius-swatch: 2px; /* 14px colour swatch in Color Input. */
+  --radius-round: 50%; /* Slider thumb. */
+  --panel-width: 241px; /* Control panel sidebar width (240px field + 1px border). Changing it means updating all field CSS. */
+  --field-width: 240px; /* Width of every field, slider field and divider. */
+  --control-height: 24px; /* Height of every input, toggle/checkbox row, menu option and button. */
+  --slider-track-width: 144px; /* Slider track width beside the value box. */
+  --slider-track-height: 16px; /* Slider track height; toggle track height. */
+  --slider-thumb-size: 20px; /* Slider thumb diameter including its 4px white ring. */
+  --font-sans: Inter, sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --text-control: 500 11px/16px var(--font-sans); /* Every control value and row label: inputs, toggles, checkboxes, menus, buttons. Colour `ink`. */
+  --text-field-label: 500 9px/14px var(--font-sans); /* Field labels above a control row (.field-label, slider labels). Colour `ink-muted`, capitalized. */
+  --text-preview-box: 500 14px/1 var(--font-sans); /* Default text in the preview area (.cp-preview-box). */
+  --text-code: 500 9px/16px var(--font-mono); /* Snippet Output textarea only. DM Mono is used nowhere else. */
+}
+.control {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.055px;
+}
+.field-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.27px;
+}
+.preview-box {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.055px;
+}
